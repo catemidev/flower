@@ -1,0 +1,6 @@
+{
+    "title": "Es una maravilla pasar una vida contigo.",
+    "name": "Pamela",
+    "phrase_one": "Gracias por dejarme construir mi familia contigo",
+    "phrase_two": "Un dia programando"
+}

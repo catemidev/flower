@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background: #040608;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+canvas.settled {
+    animation: breathe 6s ease-in-out infinite;
+}
+
+@keyframes breathe {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, .05));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 25px rgba(255, 255, 255, .15));
+    }
+}
+
+.gate {
+    position: fixed;
+    inset: 0;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background: radial-gradient(circle at 50% 50%, #0c121c, #040608 80%);
+}
+
+.gate p.title {
+    margin: 0;
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.35rem;
+    color: rgba(255, 255, 255, .85);
+}
+
+.gate h2.name{
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, .3);
+    color: #fff;
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 1.8rem;
+    text-align: center;
+    padding: 10px;
+    width: min(85vw, 400px);
+    outline: none;
+    transition: border-color .3s;
+}
+
+.gate button {
+    margin-top: 15px;
+    background: none;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, .4);
+    color: rgba(255, 255, 255, .9);
+    font-family: "Fraunces", serif;
+    font-size: 1.05rem;
+    padding: 12px 35px;
+    border-radius: 30px;
+    transition: all .3s ease;
+}
+
+.gate button:hover {
+    color: #000;
+    border-color: #fff;
+    background: #fff;
+    box-shadow: 0 0 20px rgba(255, 255, 255, .3);
+}
+
+/* Estilos comunes para hacer las imágenes circulares */
+.side-img {
+    position: absolute;
+    width: 100px;           /* Ajusta el ancho según prefieras */
+    height: 100px;          /* Debe ser igual al ancho para mantener un círculo perfecto */
+    border-radius: 50%;     /* Hace la imagen circular */
+    object-fit: cover;      /* Recorta la imagen para que encaje sin deformarse */
+    border: 2px solid rgba(255, 255, 255, 0.4); /* Opcional: borde blanco elegante */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);   /* Opcional: sombra de fondo */
+    z-index: 4;             /* Asegura que queden sobre la capa .gate */
+    top: 20%;               /* AJUSTA LA ALTURA AQUÍ (ejemplo: 20%, 30%, 100px, etc.) */
+}
+
+.side-img:hover {        /* Debe ser igual al ancho para mantener un círculo perfecto */
+    border-radius: 55%;      /* Recorta la imagen para que encaje sin deformarse */
+    border: 3px solid rgba(255, 255, 255, 0.4); /* Opcional: borde blanco elegante */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);          /* Asegura que queden sobre la capa .gate */
+    top: 22%;               /* AJUSTA LA ALTURA AQUÍ (ejemplo: 20%, 30%, 100px, etc.) */
+}
+
+/* Posición en el extremo izquierdo */
+.img-left {
+    left: 40px;             /* Distancia desde el borde izquierdo */
+}
+
+/* Posición en el extremo derecho */
+.img-right {
+    right: 40px;            /* Distancia desde el borde derecho */
+}
+
+/* Opcional: Adaptabilidad para pantallas móviles pequeñas */
+@media (max-width: 600px) {
+    .side-img {
+        width: 60px;
+        height: 60px;
+        top: 15px;          /* Ajuste para celulares */
+    }
+    .img-left {
+        left: 15px;
+    }
+    .img-right {
+        right: 15px;
+    }
+}
